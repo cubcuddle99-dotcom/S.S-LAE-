@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SS Farms | Heifers bred and raised for 280 days</title>
+<meta name="description" content="SS Farms buys heifers, breeds them, and sells them after the 280-day gestation period.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Public+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ffffff; --ink:#14532d; --pasture:#14532d; --moss:#14532d; --line:#cfe3d5; --soft:#eef5ef;
+  --tag:#f2c230; --muted:#2f6b45;
+  --head:'Bricolage Grotesque','Segoe UI',Arial,sans-serif;
+  --body:'Public Sans','Segoe UI',Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--tag);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:5}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:110px}
+.logo{font:800 34px var(--head);text-decoration:none;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+.logo img{height:92px;width:auto;display:block}
+.banner{display:block;width:100%;height:auto;aspect-ratio:1600/595;object-fit:cover;background:var(--soft)}
+nav a{margin-left:22px;text-decoration:none;font-weight:500;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+h1,h2,h3{font-family:var(--head);line-height:1.08;margin:0}
+.hero{padding:72px 0 64px;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center}
+h1{font-size:clamp(40px,6.4vw,76px);font-weight:800;letter-spacing:-.03em}
+.hero p{max-width:34em;color:var(--muted);margin:22px 0 28px;font-size:19px}
+.btn{display:inline-block;background:var(--pasture);color:#fff;padding:13px 24px;border-radius:6px;text-decoration:none;font-weight:500}
+.btn:hover{background:#0b3a1f}
+/* ear tag */
+.tag{justify-self:center;position:relative;width:min(320px,80%);aspect-ratio:3/4;background:var(--tag);border-radius:44% 44% 14px 14px/34% 34% 14px 14px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 18px 0 -8px var(--ink);transform:rotate(-4deg)}
+.tag::before{content:"";position:absolute;top:9%;width:22%;aspect-ratio:1;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 4px var(--ink)}
+.tag b{font:800 clamp(88px,13vw,132px)/1 var(--head);letter-spacing:-.04em;margin-top:22%}
+.tag span{font:600 20px var(--head)}
+section{padding:64px 0}
+section.alt{background:var(--moss);color:#fff}
+section.alt .lead,section.alt .steps p{color:#e3f1e7}
+section.alt .steps li{border-top-color:#fff}
+section.alt .steps small{color:#fff}
+section.alt .steps li::before{color:var(--ink)}
+section.alt a{color:#fff}
+.person{color:var(--ink)}
+h2{font-size:clamp(30px,4.4vw,46px);font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+.lead{max-width:38em;color:var(--muted);margin:0 0 36px}
+/* timeline */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.steps li{position:relative;padding:28px 18px 0 0;border-top:4px solid var(--pasture);counter-increment:s}
+.steps li::before{content:counter(s);position:absolute;top:-17px;left:0;width:30px;height:30px;border-radius:50%;background:var(--tag);
+  font:800 15px/30px var(--head);text-align:center}
+.steps h3{font-size:22px;margin-bottom:6px}
+.steps p{margin:0;color:var(--muted);font-size:16px}
+.steps small{display:block;margin-top:10px;font:600 14px var(--head);color:var(--pasture)}
+section{scroll-margin-top:110px}
+nav{display:flex;align-items:center}
+/* cattle */
+.cattle{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cow{background:var(--soft);border-radius:6px;overflow:hidden}
+.cow img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.cow .info{padding:16px 18px 20px}
+.cow h3{font-size:22px;margin-bottom:10px}
+.cow .st{display:inline-block;background:var(--tag);font:600 13px var(--head);padding:3px 10px;border-radius:99px;margin-bottom:10px}
+.cow dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:16px}
+.cow dt{color:var(--muted)}
+.cow dd{margin:0;font-weight:500}
+/* why */
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:32px 44px}
+.why h3{font-size:24px;margin-bottom:6px;padding-top:14px;border-top:4px solid #fff}
+.why p{margin:0;color:#e3f1e7}
+/* video */
+.video{aspect-ratio:16/9;max-width:860px;border-radius:6px;overflow:hidden;background:var(--soft)}
+.video iframe{width:100%;height:100%;border:0;display:block}
+.video .ph{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--ink)}
+/* faq */
+.faq{max-width:760px}
+.faq details{border-top:1px solid rgba(255,255,255,.45);padding:16px 0}
+.faq details:last-child{border-bottom:1px solid rgba(255,255,255,.45)}
+.faq summary{cursor:pointer;font:600 21px var(--head);list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;font-size:26px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{margin:10px 0 0;color:#e3f1e7;max-width:40em}
+/* map + whatsapp */
+.map{display:block;width:100%;aspect-ratio:16/9;max-height:420px;border:0;border-radius:6px;margin-top:36px;background:var(--soft)}
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.3);z-index:10}
+.wa:hover{background:#1ebe5a}
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;border-radius:6px;background:var(--soft)}
+/* people */
+.people{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.person{background:var(--soft);border-left:6px solid var(--tag);padding:22px 24px}
+.person h3{font-size:26px}
+.person p{margin:4px 0 0;color:var(--muted)}
+/* lightbox */
+.cow img,.gallery img{cursor:zoom-in}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.lb.open{display:flex}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;cursor:zoom-out}
+.lb button{position:absolute;top:14px;right:16px;width:46px;height:46px;border:0;border-radius:50%;background:#fff;color:#14532d;font:600 28px/1 var(--head);cursor:pointer}
+/* contact */
+.contact dl{margin:0;display:grid;grid-template-columns:130px 1fr;gap:12px 20px;max-width:560px}
+.contact dt{font-weight:500;color:var(--muted)}
+.contact dd{margin:0}
+footer{text-align:center;padding:28px 0;background:var(--moss);color:#fff;font-size:15px}
+@media (max-width:760px){
+  .gallery,.cattle,.why{grid-template-columns:1fr}
+  nav{overflow-x:auto;white-space:nowrap;max-width:62%}
+  .hero{grid-template-columns:1fr;padding-top:40px}
+  .tag{order:-1;width:200px}
+  .steps{grid-template-columns:1fr;gap:34px}
+  .people{grid-template-columns:1fr}
+  nav a{margin-left:14px}
+  .logo{font-size:24px;gap:8px}
+  .logo img{height:68px}
+  header .wrap{height:84px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="SS Farms home"><img src="images/logo.png" alt="SS Farms logo"><span>Breeding Farm</span></a>
+    <nav aria-label="Main">
+      <a href="#process">Our process</a>
+      <a href="#cattle">Cattle</a>
+      <a href="#why">Why us</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <img class="banner" src="images/banner.png" alt="SS Farms cattle farming banner">
+  <div class="wrap hero">
+    <div>
+      <h1>Heifers bred with care, sold after 270 days.</h1>
+      <p>SS Farms buys young heifers, breeds them through artificial insemination, looks after them through the full gestation period, and sells them when the 270 days are complete.</p>
+      <a class="btn" href="#contact">Ask about availability</a>
+    </div>
+    <div class="tag" role="img" aria-label="Yellow ear tag reading 280 days">
+      <b>270</b>
+      <span>days, start to sale</span>
+    </div>
+  </div>
+
+  <section class="alt" id="process">
+    <div class="wrap">
+      <h2>How we work</h2>
+      <p class="lead">Every animal follows the same four steps, from the day she arrives to the day she is sold.</p>
+      <ol class="steps">
+        <li>
+          <h3>Buy</h3>
+          <p>We select healthy young heifers and bring them to the farm.</p>
+          <small>Day 0</small>
+        </li>
+        <li>
+          <h3>Breed</h3>
+          <p>Each heifer is inseminated and her date is recorded.</p>
+          <small>Insemination day</small>
+        </li>
+        <li>
+          <h3>Care</h3>
+          <p>We feed, house, and monitor her through the gestation period.</p>
+          <small>Day 1 to 269</small>
+        </li>
+        <li>
+          <h3>Sell</h3>
+          <p>When the 270 days are complete, she is ready for sale.</p>
+          <small>Day 270</small>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="cattle">
+    <div class="wrap">
+      <h2>Available cattle</h2>
+      <p class="lead">These animals are ready for sale or reserved. Contact us to ask about any of them.</p>
+      <div class="cattle">
+        <article class="cow">
+          <img src="images/cow-1.png" alt="Heifer SS-001" loading="lazy">
+          <div class="info">
+            <span class="st">Available</span>
+            <h3>Heifer SS-001</h3>
+            <dl>
+              <dt>Age</dt><dd>2.1 years</dd>
+              <dt>Expected delivery</dt><dd>February 2027</dd>
+            </dl>
+          </div>
+        </article>
+        <article class="cow">
+          <img src="images/cow-2.png" alt="Heifer SS-002" loading="lazy">
+          <div class="info">
+            <span class="st">Available</span>
+            <h3>Heifer SS-002</h3>
+            <dl>
+              <dt>Age</dt><dd>2.1 years</dd>
+              <dt>Expected delivery</dt><dd>March 2027</dd>
+            </dl>
+          </div>
+        </article>
+        <article class="cow">
+          <img src="images/cow-3.png" alt="Heifer SS-003" loading="lazy">
+          <div class="info">
+            <span class="st">Reserved</span>
+            <h3>Heifer SS-003</h3>
+            <dl>
+              <dt>Age</dt><dd>2 years</dd>
+              <dt>Expected delivery</dt><dd>May 2027</dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="why">
+    <div class="wrap">
+      <h2>Why SS Farms</h2>
+      <p class="lead">Every animal is looked after the same way, and every step is written down.</p>
+      <div class="why">
+        <div><h3>Daily care</h3><p>Our animals are housed in clean sheds, with fresh water and regular attention every day.</p></div>
+        <div><h3>Good feed</h3><p>We give balanced feed with green fodder so that each heifer stays strong through the whole gestation period.</p></div>
+        <div><h3>Health checks</h3><p>A veterinarian checks the animals, and vaccination and treatment are done on time.</p></div>
+        <div><h3>Clear records</h3><p>We record each animal's insemination date and expected delivery date, so you know exactly when she will be ready.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <h2>Life at the farm</h2>
+      <p class="lead">A look at our animals and the place where we look after them.</p>
+      <div class="gallery">
+        <img src="images/farm-1.png" alt="Heifers at SS Farms" loading="lazy">
+        <img src="images/farm-2.png" alt="The SS Farms cattle shed" loading="lazy">
+        <img src="images/farm-3.png" alt="Feeding and care at SS Farms" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="video">
+    <div class="wrap">
+      <h2>See the farm</h2>
+      <p class="lead">A short video tour of SS Farms.</p>
+      <div class="video" id="farm-video" data-video-id="VIDEO_ID"></div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="wrap">
+      <h2>The people behind S.S LAE Breeding Farm </h2>
+      <p class="lead">Two co-founders run the farm and the business.</p>
+      <div class="people">
+        <div class="person">
+          <h3>MD. Sohan Mondal</h3>
+          <p>Co-founder and Managing Director</p>
+        </div>
+        <div class="person">
+          <h3>Sania Akter</h3>
+          <p>Co-founder and Chief Executive Officer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="faq">
+    <div class="wrap">
+      <h2>Frequently asked questions</h2>
+      <p class="lead">Short answers to what buyers ask most.</p>
+      <div class="faq">
+        <details><summary>Why 280 days?</summary><p>The gestation period of a cow is about 280 days. We sell after this period is complete, so the animal is ready at the right time.</p></details>
+        <details><summary>How is the price decided?</summary><p>The price depends on the animal's breed, age, health and how far along she is. Contact us for the current price of each animal.</p></details>
+        <details><summary>How does delivery work?</summary><p>We agree a delivery date and place with you after you confirm your order. The expected delivery month is shown on each animal above.</p></details>
+        <details><summary>How can I buy?</summary><p>Call or message us on WhatsApp, tell us which animal you want, and we will confirm availability with you.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Get in touch</h2>
+      <p class="lead">Call or message us to ask about animals, prices, and delivery.</p>
+      <dl>
+        <dt>Phone</dt><dd><a href="tel:+8801328397540">+880 01328397540</a></dd>
+        <dt>WhatsApp</dt><dd><a href="https://wa.me/8801328397540" target="_blank" rel="noopener">+880 01328397540</a></dd>
+        <dt>Email</dt><dd><a href="sohanmondal7540@gmail.com">sohanmondal7540@gmail.com</a></dd>
+        <dt>Address</dt><dd>Harunja Mondolpara, Kalai, Joypurhat, Bangladesh</dd>
+      </dl>
+      <iframe class="map" title="Map showing SS Farms location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Harunja+Mondolpara,+Kalai,+Joypurhat,+Bangladesh&output=embed"></iframe>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="y">2026</span> SS Farms. All rights reserved.</div>
+</footer>
+<a class="wa" href="https://wa.me/8801328397540?text=Hello%20SS%20Farms%2C%20I%20want%20to%20ask%20about%20your%20cattle." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" width="32" height="32" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.2-.4.7-1.300.1-.2 0-.3 0-.4l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.200c0 1.300.9 2.500 1 2.700.1.2 1.800 2.800 4.400 3.900 1.600.7 2.300.8 3.100.7.500-.1 1.500-.6 1.700-1.200.2-.6.2-1.100.2-1.200-.1-.2-.2-.2-.5-.3z"/></svg>
+</a>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo"><button type="button" aria-label="Close">&times;</button><img alt=""></div>
+<script>
+(function(){var lb=document.getElementById('lb'),big=lb.querySelector('img'),btn=lb.querySelector('button');
+function open(i){big.src=i.currentSrc||i.src;big.alt=i.alt;lb.classList.add('open');btn.focus()}
+function close(){lb.classList.remove('open');big.removeAttribute('src')}
+document.querySelectorAll('.cow img,.gallery img').forEach(function(i){
+i.tabIndex=0;i.setAttribute('role','button');
+i.addEventListener('click',function(){open(i)});
+i.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i)}})});
+lb.addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});})();
+</script>
+<script>document.getElementById('y').textContent=new Date().getFullYear();
+(function(){var box=document.getElementById('farm-video'),id=box.dataset.videoId;
+if(id&&id!=='VIDEO_ID'){box.innerHTML='<iframe src="https://www.youtube.com/embed/'+encodeURIComponent(id)+'" title="SS Farms video" allowfullscreen loading="lazy"></iframe>'}
+else{box.innerHTML='<div class="ph">Your video will appear here.<br>Put your YouTube video ID in data-video-id.</div>'}})();
+</script>
+</body>
+</html>
